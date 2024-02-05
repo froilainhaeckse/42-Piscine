@@ -17,7 +17,7 @@ void	ft_putnbr(int nb);
 
 void	ft_putnbr(int nb)
 {
-	char	buffer[5];
+	char	buffer[20];
 	int	digit_count;
 	int	counter;	
 
