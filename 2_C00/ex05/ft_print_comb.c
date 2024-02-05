@@ -18,8 +18,6 @@ void	write_output(char num1, char num2, char num3)
 	write(1, &num3, 1);
 	if (!(num1 == '7' && num2 == '8'))
 		write(1, ", ", 2);
-	else
-		write(1, "\n", 1);
 }
 
 void	ft_print_comb(void)
