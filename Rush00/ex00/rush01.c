@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush00.c                                           :+:      :+:    :+:   */
+/*   rush01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ommasoud <ommasoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 12:03:44 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/04 17:01:58 by ommasoud         ###   ########.fr       */
+/*   Created: 2024/02/04 16:36:57 by ommasoud          #+#    #+#             */
+/*   Updated: 2024/02/04 16:41:42 by ommasoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,25 @@
 
 void	ft_putchar(char c);
 
-void	display_row(int col_count, int col_limit, int row_count, int row_limit)
+void	display_row(int col_count, int col_limit,
+	int row_count, int row_limit)
 {
 	while (col_count < col_limit)
 	{
-		if ((col_count == 0) || (col_count == col_limit - 1))
-		{
-			if ((row_count == 0) || (row_count == row_limit - 1))
-			{
-				ft_putchar('o');
-			}
-			else
-			{
-				ft_putchar('|');
-			}
-		}
-		else if (row_count > 0 && row_count < row_limit -1)
-		{
-			ft_putchar(' ');
-		}
+		if (col_count == 0 && row_count == 0)
+			ft_putchar('/');
+		else if (col_count == 0 && row_count == row_limit - 1 
+			|| col_count == col_limit - 1 && row_count == 0)
+			ft_putchar('\\');
+		else if (col_count == col_limit -1 && row_count == row_limit - 1)
+			ft_putchar('/');
+		else if (col_count == 0 || col_count == col_limit - 1 
+			|| row_count == 0 || row_count == row_limit - 1)
+			ft_putchar('*');
 		else
-		{
-			ft_putchar('-');
-		}
-		col_count++;
+			ft_putchar(' ');
+		col_count++; 
 	}
-	ft_putchar('\n');
 }
 
 void	error_handling(void)
@@ -71,5 +64,6 @@ void	rush(int x, int y)
 	{
 		display_row(col_count, col_limit, row_count, row_limit);
 		row_count++;
+		ft_putchar('\n');
 	}
 }
