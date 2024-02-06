@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
 
 void	ft_putchar(char c);
 
@@ -62,6 +63,7 @@ void	rush(int x, int y)
 	if (x < 1 || y < 1)
 	{
 		error_handling();
+		exit(0);
 	}
 	col_limit = x;
 	row_limit = y;

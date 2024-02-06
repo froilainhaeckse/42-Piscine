@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
 
 void	ft_putchar(char c);
 
@@ -21,8 +22,8 @@ void	display_row(int col_count, int col_limit,
 	{
 		if (col_count == 0 && row_count == 0)
 			ft_putchar('/');
-		else if (col_count == 0 && row_count == row_limit - 1 
-			|| col_count == col_limit - 1 && row_count == 0)
+		else if ((col_count == 0 && row_count == row_limit - 1) 
+			|| (col_count == col_limit - 1 && row_count == 0))
 			ft_putchar('\\');
 		else if (col_count == col_limit -1 && row_count == row_limit - 1)
 			ft_putchar('/');
@@ -55,6 +56,7 @@ void	rush(int x, int y)
 	if (x < 1 || y < 1)
 	{
 		error_handling();
+		exit(1);
 	}
 	col_limit = x;
 	row_limit = y;
