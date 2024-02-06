@@ -6,77 +6,69 @@
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 12:25:08 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/06 15:33:07 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/06 16:49:27 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-void	write_output(char fst_dig, char snd_dig, char trd_dig, char fth_dig)
+char	num_to_char(int digit)
 {
-	write(1, &fst_dig, 1);
-	write(1, &snd_dig, 1);
-	write(1, " ", 1);
-	write(1, &trd_dig, 1);
-	write(1, &fth_dig, 1);
-	if (!(fst_dig == '9' && snd_dig == '8' && fth_dig == '9'))
-		write(1, ", ", 2);
+	char	digit_char;
+
+	digit_char = digit + '0';
+	return (digit_char);
 }
 
-void	generate_output(int fst_num, int snd_num)
+int	first_digit(int num)
 {
-	while (fst_num <= 98)
-	{
-		while (snd_num <= 99)
-		{
-			if (fst_num < 10 && snd_num < 10)
-			{
-				char fst_num_char = fst_num + '0';
-				char snd_num_char = snd_num + '0';
-				write_output('0', fst_num_char, '0', snd_num_char);
-			}
-			else
-			{
-				if (fst_num < 10)
-				{
-					char fst_num_char = fst_num + '0';
-					int snd_num_fst_dig = snd_num/10;
-					int snd_num_snd_dig = snd_num%10;
-					char snd_num_fst_dig_char = snd_num_fst_dig + '0';
-					char snd_num_snd_dig_char = snd_num_snd_dig + '0';
-					write_output('0', fst_num_char, snd_num_fst_dig_char, snd_num_snd_dig_char);
-				}
-				else if (snd_num < 10)
-				{
-					char snd_num_char = snd_num + '0';
-					int fst_num_fst_dig = fst_num/10;
-					int fst_num_snd_dig = fst_num%10;
-					char fst_num_fst_dig_char = fst_num_fst_dig + '0';
-					char fst_num_snd_dig_char = fst_num_snd_dig + '0';
-					write_output(fst_num_fst_dig_char, fst_num_snd_dig_char, '0', snd_num_char);
-				}
-				else
-				{
-					int fst_num_fst_dig = fst_num/10;
-					int fst_num_snd_dig = fst_num%10;
-					char fst_num_fst_dig_char = fst_num_fst_dig + '0';
-					char fst_num_snd_dig_char = fst_num_snd_dig + '0';
-					int snd_num_fst_dig = snd_num/10;
-					int snd_num_snd_dig = snd_num%10;
-					char snd_num_fst_dig_char = snd_num_fst_dig + '0';
-					char snd_num_snd_dig_char = snd_num_snd_dig + '0';
-					write_output(fst_num_fst_dig_char, fst_num_snd_dig_char, snd_num_fst_dig_char, snd_num_snd_dig_char);
-				}
-			}
-			snd_num++;
-		}
-		snd_num = fst_num;
-		fst_num++;
-	}
+	int		digit;
+
+	digit = num / 10;
+	return (digit);
+}
+
+int	second_digit(int num)
+{
+	int		digit;
+
+	digit = num % 10;
+	return (digit);
+}
+
+void	write_output(int fst_num, int snd_num)
+{
+	char	digits[4];
+
+	digits[0] = num_to_char(first_digit(fst_num));
+	digits[1] = num_to_char(second_digit(fst_num));
+	digits[2] = num_to_char(first_digit(snd_num));
+	digits[3] = num_to_char(second_digit(snd_num));
+	write(1, &digits[0], 1);
+	write(1, &digits[1], 1);
+	write(1, " ", 1);
+	write(1, &digits[2], 1);
+	write(1, &digits[3], 1);
+	if (!(digits[0] == '9' && digits[1] == '8' && digits[3] == '9'))
+		write(1, ", ", 2);
 }
 
 void	ft_print_comb2(void)
 {
-	generate_output(0, 1);
+	int		fst_num;
+	int		snd_num;
+
+	fst_num = 0;
+	snd_num = 1;
+	while (fst_num <= 98)
+	{
+		while (snd_num <= 99)
+		{
+			write_output(fst_num, snd_num);
+			snd_num++;
+		}
+		fst_num++;
+		snd_num = fst_num + 1;
+	}
 }
