@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:51:12 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/05 14:56:10 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/06 13:02:47 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@ void	ft_putnbr(int nb);
 void	ft_putnbr(int nb)
 {
 	char	buffer[20];
-	int	digit_count;
-	int	counter;	
+	int		digit_count;
+	int		counter;	
 
-	digit_count = snprintf(buffer, sizeof(buffer), "%d", nb);	
+	digit_count = snprintf(buffer, sizeof(buffer), "%d", nb);
 	counter = 0;
 	while (counter <= digit_count)
 	{
 		write(1, &buffer[counter], 1);
 		counter++;
 	}
-
 	write(1, "\n", 1);
 }
