@@ -6,11 +6,12 @@
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 12:25:08 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/06 13:13:49 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/06 15:33:07 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 void	write_output(char fst_dig, char snd_dig, char trd_dig, char fth_dig)
 {
@@ -19,47 +20,63 @@ void	write_output(char fst_dig, char snd_dig, char trd_dig, char fth_dig)
 	write(1, " ", 1);
 	write(1, &trd_dig, 1);
 	write(1, &fth_dig, 1);
-	if (!(fst_dig == '9' && snd_dig == '8'))
+	if (!(fst_dig == '9' && snd_dig == '8' && fth_dig == '9'))
 		write(1, ", ", 2);
-	else
-		write(1, "\n", 1);
 }
 
-void	generate_output(char fst_dig, char snd_dig, char trd_dig, char fth_dig)
+void	generate_output(int fst_num, int snd_num)
 {
-	while (fst_dig <= '9')
+	while (fst_num <= 98)
 	{
-		while (snd_dig <= '9')
+		while (snd_num <= 99)
 		{
-			while (trd_dig <= '9')
+			if (fst_num < 10 && snd_num < 10)
 			{
-				while (fth_dig <= '9')
-				{
-					write_output(fst_dig, snd_dig, trd_dig, fth_dig);
-					fth_dig++;
-				}
-				fth_dig = '0';
-				trd_dig++;
+				char fst_num_char = fst_num + '0';
+				char snd_num_char = snd_num + '0';
+				write_output('0', fst_num_char, '0', snd_num_char);
 			}
-			snd_dig++;
-			trd_dig = fst_dig;
-			fth_dig = '1';
+			else
+			{
+				if (fst_num < 10)
+				{
+					char fst_num_char = fst_num + '0';
+					int snd_num_fst_dig = snd_num/10;
+					int snd_num_snd_dig = snd_num%10;
+					char snd_num_fst_dig_char = snd_num_fst_dig + '0';
+					char snd_num_snd_dig_char = snd_num_snd_dig + '0';
+					write_output('0', fst_num_char, snd_num_fst_dig_char, snd_num_snd_dig_char);
+				}
+				else if (snd_num < 10)
+				{
+					char snd_num_char = snd_num + '0';
+					int fst_num_fst_dig = fst_num/10;
+					int fst_num_snd_dig = fst_num%10;
+					char fst_num_fst_dig_char = fst_num_fst_dig + '0';
+					char fst_num_snd_dig_char = fst_num_snd_dig + '0';
+					write_output(fst_num_fst_dig_char, fst_num_snd_dig_char, '0', snd_num_char);
+				}
+				else
+				{
+					int fst_num_fst_dig = fst_num/10;
+					int fst_num_snd_dig = fst_num%10;
+					char fst_num_fst_dig_char = fst_num_fst_dig + '0';
+					char fst_num_snd_dig_char = fst_num_snd_dig + '0';
+					int snd_num_fst_dig = snd_num/10;
+					int snd_num_snd_dig = snd_num%10;
+					char snd_num_fst_dig_char = snd_num_fst_dig + '0';
+					char snd_num_snd_dig_char = snd_num_snd_dig + '0';
+					write_output(fst_num_fst_dig_char, fst_num_snd_dig_char, snd_num_fst_dig_char, snd_num_snd_dig_char);
+				}
+			}
+			snd_num++;
 		}
-		snd_dig = '0';
-		fst_dig++;
+		snd_num = fst_num;
+		fst_num++;
 	}
 }
 
 void	ft_print_comb2(void)
 {
-	char	fst_digit;
-	char	snd_digit;
-	char	trd_digit;
-	char	fth_digit;
-
-	fst_digit = '0';
-	snd_digit = '0';
-	trd_digit = '0';
-	fth_digit = '1';
-	generate_output(fst_digit, snd_digit, trd_digit, fth_digit);
+	generate_output(0, 1);
 }
