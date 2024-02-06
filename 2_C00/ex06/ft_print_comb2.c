@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 12:25:08 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/05 13:49:19 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/06 13:13:49 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	generate_output(char fst_dig, char snd_dig, char trd_dig, char fth_dig)
 			}
 			snd_dig++;
 			trd_dig = fst_dig;
-			fth_dig = snd_dig + 1;
+			fth_dig = '1';
 		}
 		snd_dig = '0';
 		fst_dig++;
