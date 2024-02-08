@@ -14,3 +14,15 @@ void	ft_ft(int *nbr)
 {
 	*nbr = 42;
 }
+
+int main() {
+    int number;
+    
+    number = 0;
+    // Write C code here
+    printf("Before: %d", number);
+    printf("\n");
+    ft_ft(&number);
+    printf("After: %d", number);
+    return 0;
+}

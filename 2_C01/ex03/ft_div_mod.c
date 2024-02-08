@@ -25,7 +25,7 @@ void	ft_div_mod(int a, int b, int *div, int *mod)
 //     int b = 4;
 //     printf("Num 1 Before ft_div_mod: %d\n", div);
 //     printf("Num 2 Before ft_div_mod: %d\n", mod);
-//     ft_div_mod(a, b, &div, &mod)
+//     ft_div_mod(a, b, &div, &mod);
 //     printf("Num 1 After ft_div_mod: %d\n", div);
 //     printf("Num 2 After ft_div_mod: %d\n", mod);
 //     return 0;
