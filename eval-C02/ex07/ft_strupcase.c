@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: apapavas <apapavas@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 13:38:14 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/08 14:57:48 by tkupler          ###   ########.fr       */
+/*   Created: 2024/02/06 13:09:55 by apapavas          #+#    #+#             */
+/*   Updated: 2024/02/06 19:03:02 by apapavas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strupcase(char *str)
 {
+	char	*buffer;
 
-}
-
-int	main()
-{
-	char *dest;
-	char *src;
-
-	dest = "";
-	src = "theacodes":	
+	buffer = str;
+	while (*str != '\0')
+	{
+		if (*str >= 'a' && *str <= 'z')
+			*str = *str - 32;
+		str++;
+	}
+	str = buffer;
+	return (str);
 }

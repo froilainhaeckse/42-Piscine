@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: apapavas <apapavas@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 13:38:14 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/08 14:57:48 by tkupler          ###   ########.fr       */
+/*   Created: 2024/02/07 14:16:31 by apapavas          #+#    #+#             */
+/*   Updated: 2024/02/07 14:42:42 by apapavas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
+	int	i;
 
-}
-
-int	main()
-{
-	char *dest;
-	char *src;
-
-	dest = "";
-	src = "theacodes":	
+	i = 0;
+	while (src[i] != '\0' && i < size)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (i);
 }

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: apapavas <apapavas@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 13:38:14 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/08 14:57:48 by tkupler          ###   ########.fr       */
+/*   Created: 2024/02/07 14:58:03 by apapavas          #+#    #+#             */
+/*   Updated: 2024/02/07 15:19:34 by apapavas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_alpha(char *str)
 {
-
-}
-
-int	main()
-{
-	char *dest;
-	char *src;
-
-	dest = "";
-	src = "theacodes":	
+	while (*str != '\0')
+	{
+		if ((*str < 'A' || *str > 'Z') && (*str < 'a' || *str > 'z'))
+			return (0);
+		str++;
+	}
+	return (1);
 }
