@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 13:38:14 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/09 12:15:23 by tkupler          ###   ########.fr       */
+/*   Created: 2024/02/09 12:14:18 by tkupler           #+#    #+#             */
+/*   Updated: 2024/02/09 12:17:59 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (src[i] != '\0' && i < n)
 	{
 		dest[i] = src[i];
 		i++;
@@ -29,15 +29,15 @@ char	*ft_strcpy(char *dest, char *src)
 // int	main()
 // {
 // 	char	dest[20];
-// 	char	src[20];
-// 	// char	src[] = "theacodes";
+// // 	char	src[20];
+// 	char	src[] = "theacodes";
 
 // 	printf("Before Destination: %s", dest);
 // 	printf("\n");
 // 	printf("Before Source: %s", src);
 // 	printf("\n");
-// 	// ft_strcpy(dest, src);
-// 	ft_strcpy(dest, "theacodes");
+// 	ft_strncpy(dest, src, 4);
+// // 	ft_strncpy(dest, "theacodes");
 // 	printf("After Destination: %s", dest);
 // 	printf("\n");
 // 	printf("After Source: %s", src);

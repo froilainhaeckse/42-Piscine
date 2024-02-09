@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 13:38:14 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/09 12:15:23 by tkupler          ###   ########.fr       */
+/*   Created: 2024/02/09 12:19:42 by tkupler           #+#    #+#             */
+/*   Updated: 2024/02/09 12:45:45 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+char	ft_str_is_alpha(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
+	while (*str != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		if ((*str < 'a' || *str > 'z')
+			&& (*str < 'A' || *str > 'Z')
+			&& (*str != ' '))
+			return ('0');
+		str++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return ('1');
 }
 
 // int	main()
 // {
-// 	char	dest[20];
-// 	char	src[20];
-// 	// char	src[] = "theacodes";
+// 	char	src[] = "theacodes ";
+// 	char	result = ft_str_is_alpha(src);
 
-// 	printf("Before Destination: %s", dest);
-// 	printf("\n");
 // 	printf("Before Source: %s", src);
 // 	printf("\n");
-// 	// ft_strcpy(dest, src);
-// 	ft_strcpy(dest, "theacodes");
-// 	printf("After Destination: %s", dest);
+// 	printf("Result: %c", result);
 // 	printf("\n");
 // 	printf("After Source: %s", src);
-// 	printf("\n");
 // 	return (0);
 // }
