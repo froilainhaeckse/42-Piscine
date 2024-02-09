@@ -1,50 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 12:14:18 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 00:00:12 by tkupler          ###   ########.fr       */
+/*   Created: 2024/02/09 23:35:48 by tkupler           #+#    #+#             */
+/*   Updated: 2024/02/09 23:47:09 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	ft_strcapitalize(char *str)
 {
-	unsigned int i;
+    int	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (str[i] >= 'a' && str[i] <= 'z')
+			if (str[i - 1] < 'a' || str[i - 1] > 'z')
+				if (str[i - 1] < 'A' || str[i - 1] > 'Z')
+					str[i] = str[i] - 32;
 		i++;
 	}
-	while (dest[i] != '\0' && i >= n)
-	{
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+    return (*str);
 }
 
 // int	main()
 // {
-// 	char	dest[20];
-// // 	char	src[20];
-// 	char	src[] = "theacodes";
+// 	char	src[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
 
-// 	printf("Before Destination: %s", dest);
-// 	printf("\n");
 // 	printf("Before Source: %s", src);
 // 	printf("\n");
-// 	ft_strncpy(dest, src, 4);
-// // 	ft_strncpy(dest, "theacodes");
-// 	printf("After Destination: %s", dest);
-// 	printf("\n");
-// 	printf("After Source: %s", src);
+//     ft_strcapitalize(src);
+// 	printf("After: %s", src);
 // 	printf("\n");
 // 	return (0);
 // }

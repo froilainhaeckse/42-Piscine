@@ -1,50 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 12:14:18 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 00:00:12 by tkupler          ###   ########.fr       */
+/*   Created: 2024/02/09 23:09:45 by tkupler           #+#    #+#             */
+/*   Updated: 2024/02/09 23:17:06 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	ft_str_is_lowercase(char *str)
 {
-	unsigned int i;
-
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (*str != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		if ((*str < 'a' || *str > 'z') && *str != ' ')
+			return ('0');
+		str++;
 	}
-	while (dest[i] != '\0' && i >= n)
-	{
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return ('1');
 }
 
 // int	main()
 // {
-// 	char	dest[20];
-// // 	char	src[20];
-// 	char	src[] = "theacodes";
+// 	char	src[] = "abcddfe";
+// 	char	result = ft_str_is_lowercase(src);
 
-// 	printf("Before Destination: %s", dest);
-// 	printf("\n");
 // 	printf("Before Source: %s", src);
 // 	printf("\n");
-// 	ft_strncpy(dest, src, 4);
-// // 	ft_strncpy(dest, "theacodes");
-// 	printf("After Destination: %s", dest);
-// 	printf("\n");
-// 	printf("After Source: %s", src);
+// 	printf("Result: %c", result);
 // 	printf("\n");
 // 	return (0);
 // }
