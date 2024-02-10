@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 16:46:49 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 17:24:41 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 17:51:23 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	parse_input(char *input, char *viewpoints)
 	{
 		if (*input >= '1' && *input <= '4')
 		{
-			if (j >= 0 && j < 4)
-				viewpoints[j] = *input;
+			viewpoints[j] = *input;
 			j++;
 		}
 		input++;
