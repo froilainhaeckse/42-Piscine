@@ -6,21 +6,21 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 23:18:50 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/09 23:20:49 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 00:11:48 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
-char	ft_str_is_printable(char *str)
+int	ft_str_is_printable(char *str)
 {
 	while (*str != '\0')
 	{
 		if ((*str < ' ' || *str > '~') && *str != ' ')
-			return ('0');
+			return (0);
 		str++;
 	}
-	return ('1');
+	return (1);
 }
 
 // int	main()

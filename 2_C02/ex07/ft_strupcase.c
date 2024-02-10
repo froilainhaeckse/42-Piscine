@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 23:21:19 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/09 23:34:54 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 01:00:39 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ char	ft_strupcase(char *str)
 {
 	while (*str != '\0')
 	{
-        if (*str >= 'a' && *str <= 'z')   
-		    *str -= 32;
+		if (*str >= 'a' && *str <= 'z')
+			*str -= 32;
 		str++;
 	}
-    return (*str);
+	return (*str);
 }
 
 // int	main()

@@ -6,25 +6,43 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 23:35:48 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/09 23:47:09 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 00:56:37 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
+#include <stdio.h>
 
 char	ft_strcapitalize(char *str)
 {
-    int	i;
+	int	i;
+	int capitalize_next = 1;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			if (str[i - 1] < 'a' || str[i - 1] > 'z')
-				if (str[i - 1] < 'A' || str[i - 1] > 'Z')
-					str[i] = str[i] - 32;
-		i++;
-	}
+    i = 0;
+
+    while (str[i] != '\0')
+    {
+        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+        {
+            if (capitalize_next)
+		    {
+				if (str[i] >= 'a' && str[i] <= 'z')
+					str[i] -= 32;
+				capitalize_next = 0;
+			}
+            else
+			{
+				if (str[i] >= 'A' && str[i] <= 'Z')
+					str[i] += 32;
+			}
+        }
+        else if (str[i] >= '0' && str[i] <= '9')
+            capitalize_next = 0;
+        else
+        {
+            capitalize_next = 1;
+        }
+        i++;
+    }
     return (*str);
 }
 

@@ -6,21 +6,21 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 23:09:45 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/09 23:17:06 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 00:11:23 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdio.h>
 
-char	ft_str_is_lowercase(char *str)
+int	ft_str_is_lowercase(char *str)
 {
 	while (*str != '\0')
 	{
 		if ((*str < 'a' || *str > 'z') && *str != ' ')
-			return ('0');
+			return (0);
 		str++;
 	}
-	return ('1');
+	return (1);
 }
 
 // int	main()
