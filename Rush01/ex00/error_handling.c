@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:56:03 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 21:06:10 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 21:11:54 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	error_handling(int argc, char *input)
 	int		i;
 	bool	wrong_argument_count;
 	bool	characters_within_range;
-    bool    error_found;
+	bool	error_found;
 
 	i = 0;
-    error_found = false;
+	error_found = false;
 	wrong_argument_count = (argc != 2);
 	if (wrong_argument_count)
 		error_found = true;
@@ -45,6 +45,6 @@ void	error_handling(int argc, char *input)
 			error_found = true;
 		i += 2;
 	}
-    if (error_found)
-        write_error_message();
+	if (error_found)
+		write_error_message();
 }

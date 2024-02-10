@@ -6,14 +6,14 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 16:46:49 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 21:08:25 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 21:11:23 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-void error_handling(int argc, char *input);
+void	error_handling(int argc, char *input);
 
 void	parse_input(char *input, char *viewpoints)
 {
