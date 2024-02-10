@@ -6,54 +6,13 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 16:46:49 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 21:51:02 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 21:55:26 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-
 void	error_handling(int argc, char *input);
-
-void	init_grid(int grid[4][4])
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			grid[i][j] = 0;
-			j++;
-		}
-		i++;
-	}
-}
-
-void	print_grid(int grid[4][4])
-{
-	int		i;
-	int		j;
-	char	c;
-
-	i = 0;
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			c = '0' + grid[i][j];
-			write(1, &c, 1);
-			write(1, " ", 1);
-			j++;
-		}
-		write(1, "\n", 1);
-		i++;
-	}
-}
+void	init_grid(int grid[4][4]);
+void	print_grid(int grid[4][4]);
 
 void	parse_input(char *input, char *viewpoints)
 {
