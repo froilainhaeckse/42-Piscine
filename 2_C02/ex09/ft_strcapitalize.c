@@ -6,42 +6,44 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 23:35:48 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 09:07:36 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 09:22:23 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
+int	capitalize_next(char str)
+{
+	int	cap_next_i;
+
+	if ((str >= 'a' && str <= 'z') || (str >= 'A' && str <= 'Z'))
+		cap_next_i = 0;
+	else if (str >= '0' && str <= '9')
+		cap_next_i = 0;
+	else
+		cap_next_i = 1;
+	return (cap_next_i);
+}
+
 char	ft_strcapitalize(char *str)
 {
 	int	i;
-	int	capitalize_next;
+	int	cap_next_i;
 
 	i = 0;
-	capitalize_next = 1;
+	cap_next_i = 1;
 	while (str[i] != '\0')
 	{
-		if ((str[i] >= 'a' && str[i] <= 'z')
-			|| (str[i] >= 'A' && str[i] <= 'Z'))
+		if (cap_next_i)
 		{
-			if (capitalize_next)
-			{
-				if (str[i] >= 'a' && str[i] <= 'z')
-					str[i] -= 32;
-				capitalize_next = 0;
-			}
-			else
-			{
-				if (str[i] >= 'A' && str[i] <= 'Z')
-					str[i] += 32;
-			}
+			if ((str[i] >= 'a' && str[i] <= 'z'))
+				str[i] -= 32;
 		}
-		else if (str[i] >= '0' && str[i] <= '9')
-			capitalize_next = 0;
-		else
+		else if (str[i] >= 'A' && str[i] <= 'Z')
 		{
-			capitalize_next = 1;
+			str[i] += 32;
 		}
+		cap_next_i = capitalize_next(str[i]);
 		i++;
 	}
 	return (*str);
