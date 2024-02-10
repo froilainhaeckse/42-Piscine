@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 16:46:49 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 21:47:12 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/10 21:51:02 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,23 @@ void	init_grid(int grid[4][4])
 
 void	print_grid(int grid[4][4])
 {
+	int		i;
+	int		j;
 	char	c;
 
-	for (int i = 0; i < 4; i++)
+	i = 0;
+	while (i < 4)
 	{
-		for (int j = 0; j < 4; j++)
+		j = 0;
+		while (j < 4)
 		{
 			c = '0' + grid[i][j];
 			write(1, &c, 1);
 			write(1, " ", 1);
+			j++;
 		}
 		write(1, "\n", 1);
+		i++;
 	}
 }
 
