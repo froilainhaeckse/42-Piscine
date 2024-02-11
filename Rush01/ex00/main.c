@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 16:46:49 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/11 13:37:13 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:38:46 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@ void	init_grid(int grid[4][4]);
 void	print_grid(int grid[4][4]);
 int		solve_grid(int grid[4][4], char *viewpoints, int row, int col);
 void	error_message_solving_grid(void);
+int		populate_based_on_viewpoints(int grid[4][4], char *viewpoints);
 
 void	parse_input(char *input, char *viewpoints)
 {

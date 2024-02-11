@@ -6,13 +6,15 @@
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 21:53:38 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/11 14:10:17 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/11 17:39:16 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	is_valid(int grid[4][4], char *viewpoints, int position[2], int num);
+int		is_valid(int grid[4][4], char *viewpoints, int position[2], int num);
+int		populate_based_on_viewpoints(int grid[4][4], char *viewpoints);
+void	place_number(int grid[4][4], int row, int col, int num);
 
 void	init_grid(int grid[4][4])
 {
@@ -32,11 +34,6 @@ void	init_grid(int grid[4][4])
 	}
 }
 
-void	place_number(int grid[4][4], int row, int col, int num)
-{
-	grid[row][col] = num;
-}
-
 // Backtracking search function
 // Tries all combinations by recursively placing numbers and checking validity
 // Returns 1 if valid grid found, 0 otherwise
@@ -45,6 +42,7 @@ int	solve_grid(int grid[4][4], char *viewpoints, int row, int col)
 	int	num;
 	int	position[2];
 
+	populate_based_on_viewpoints(grid, viewpoints);
 	if (row > 3)
 		return (1);
 	else if (col > 3)
