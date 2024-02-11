@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 21:53:38 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 23:08:01 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/11 09:44:20 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,14 @@ void	init_grid(int grid[4][4])
 	}
 }
 
+void	place_number(int grid[4][4], int row, int col, int num) {
+	grid[row][col] = num;
+}
+
 int	solve_grid(int grid[4][4], char *viewpoints, int row, int col)
+// Backtracking search function
+// Tries all combinations by recursively placing numbers and checking validity
+// Returns 1 if valid grid found, 0 otherwise
 {
 	int	num;
 
@@ -39,7 +46,8 @@ int	solve_grid(int grid[4][4], char *viewpoints, int row, int col)
 	num = 1;
 	while (num <= 4)
 	{
-		grid[row][col] = num;
+		//grid[row][col] = num;
+		place_number(grid, row, col, 0);
 		if (col == 3)
 		{
 			if (solve_grid(grid, viewpoints, row + 1, 0))
@@ -52,7 +60,7 @@ int	solve_grid(int grid[4][4], char *viewpoints, int row, int col)
 		}
 		num++;
 	}
-	grid[row][col] = 0;
+	place_number(grid, row, col, 0);
 	return (0);
 }
 
