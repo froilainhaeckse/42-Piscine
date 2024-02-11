@@ -6,14 +6,13 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:56:03 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/11 10:43:05 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/11 10:45:02 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 void	write_error_message(void)
 {
