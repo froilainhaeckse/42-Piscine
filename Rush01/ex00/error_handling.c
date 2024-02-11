@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:56:03 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/11 11:09:01 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/11 12:32:40 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 void	error_message_wrong_input(void)
 {
-	write(1, "Error\n", 6);
+	write(1, "Error. Invalid Input.\n", 22);
 	write(1, "Parse all your digits in one command. ", 39);
 	write(1, "Only use digits between 0 and 4.\n", 34);
 	write(1, "Each digit has to be seperated by one space. ", 46);
-	write(1, "Everything placed within Quotes once.\n", 39);
+	write(1, "Everything has to be placed within Quotes once.\n", 48);
 	exit(0);
 }
 
@@ -35,7 +35,7 @@ void	error_handling(int argc, char *input)
 	int		i;
 	int		digits_count;
 	bool	wrong_argument_count;
-	bool	characters_within_range;
+	bool	character_within_range;
 
 	i = 0;
 	digits_count = 1;
@@ -44,10 +44,10 @@ void	error_handling(int argc, char *input)
 		error_message_wrong_input();
 	while (input[i] != '\0')
 	{
-		characters_within_range = (input[i] >= '1' && input[i] <= '4');
-		if (characters_within_range && input[i + 1] == '\0')
+		character_within_range = (input[i] >= '1' && input[i] <= '4');
+		if (character_within_range && input[i + 1] == '\0')
 			break ;
-		if (!(characters_within_range && input[i + 1] == 32))
+		if (!(character_within_range && input[i + 1] == 32))
 			error_message_wrong_input();
 		i += 2;
 		digits_count++;
