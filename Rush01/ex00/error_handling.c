@@ -6,13 +6,14 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:56:03 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 21:11:54 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/11 10:43:05 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 void	write_error_message(void)
 {
@@ -27,24 +28,25 @@ void	write_error_message(void)
 void	error_handling(int argc, char *input)
 {
 	int		i;
+	int		digits_count;
 	bool	wrong_argument_count;
 	bool	characters_within_range;
-	bool	error_found;
 
 	i = 0;
-	error_found = false;
+	digits_count = 1;
 	wrong_argument_count = (argc != 2);
 	if (wrong_argument_count)
-		error_found = true;
+		write_error_message();
 	while (input[i] != '\0')
 	{
 		characters_within_range = (input[i] >= '1' && input[i] <= '4');
 		if (characters_within_range && input[i + 1] == '\0')
 			break ;
 		if (!(characters_within_range && input[i + 1] == 32))
-			error_found = true;
+			write_error_message();
 		i += 2;
+		digits_count++;
 	}
-	if (error_found)
+	if (digits_count != 16)
 		write_error_message();
 }
