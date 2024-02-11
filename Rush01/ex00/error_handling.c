@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:56:03 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/11 10:45:02 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/11 11:09:01 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void	write_error_message(void)
+void	error_message_wrong_input(void)
 {
 	write(1, "Error\n", 6);
 	write(1, "Parse all your digits in one command. ", 39);
@@ -22,6 +22,12 @@ void	write_error_message(void)
 	write(1, "Each digit has to be seperated by one space. ", 46);
 	write(1, "Everything placed within Quotes once.\n", 39);
 	exit(0);
+}
+
+void	error_message_solving_grid(void)
+{
+	write(1, "Error\n", 6);
+	write(1, "There was a problem solving the grid.\n", 38);
 }
 
 void	error_handling(int argc, char *input)
@@ -35,17 +41,17 @@ void	error_handling(int argc, char *input)
 	digits_count = 1;
 	wrong_argument_count = (argc != 2);
 	if (wrong_argument_count)
-		write_error_message();
+		error_message_wrong_input();
 	while (input[i] != '\0')
 	{
 		characters_within_range = (input[i] >= '1' && input[i] <= '4');
 		if (characters_within_range && input[i + 1] == '\0')
 			break ;
 		if (!(characters_within_range && input[i + 1] == 32))
-			write_error_message();
+			error_message_wrong_input();
 		i += 2;
 		digits_count++;
 	}
 	if (digits_count != 16)
-		write_error_message();
+		error_message_wrong_input();
 }
