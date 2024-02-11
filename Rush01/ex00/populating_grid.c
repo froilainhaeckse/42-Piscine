@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:33:41 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/11 17:39:25 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/11 21:25:38 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ int	populate_column_for_viewpoint(int grid[4][4], char *viewpoints, int i)
 	else if (viewpoints[i] == '1')
 	{
 		place_number(grid, 0, i, 4);
+	}
+	else if (viewpoints[i] == '4')
+	{
+		place_number(grid, 0, i, 1);
 	}
 	return (1);
 }
