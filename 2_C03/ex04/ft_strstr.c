@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 09:50:37 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/12 21:09:31 by tkupler          ###   ########.fr       */
+/*   Created: 2024/02/12 23:01:11 by tkupler           #+#    #+#             */
+/*   Updated: 2024/02/12 23:36:26 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strstr(char *str, char *to_find)
 {
-	unsigned int	i;
+	int	i;
+	int	j;
+	int	k;
 
 	i = 0;
-	if (n <= 0)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
+	if (*to_find == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if (str[i] == to_find[0])
+		{
+			j = 0;
+			k = i;
+			while (to_find[j] != '\0' && str[k] != '\0' && str[k] == to_find[j])
+			{
+				k++;
+				j++;
+			}
+			if (to_find[j] == '\0')
+				return (&str[i]);
+		}
 		i++;
 	}
-	if (i == n)
-		return (0);
-	return (s1[i] - s2[i]);
+	return (NULL);
 }

@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 09:50:37 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/12 21:09:31 by tkupler          ###   ########.fr       */
+/*   Created: 2024/02/12 21:10:36 by tkupler           #+#    #+#             */
+/*   Updated: 2024/02/12 23:36:47 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	unsigned int	i;
+	int				i;
+	unsigned int	j;
 
 	i = 0;
-	if (n <= 0)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
+	j = 0;
+	while (dest[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
 		i++;
 	}
-	if (i == n)
-		return (0);
-	return (s1[i] - s2[i]);
+	while (src[j] != '\0' && j < nb)
+	{
+		dest[i] = src[j];
+		j++;
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
+
+// int	main(void)
+// {
+// 	char dest[50] = "Hello, ";
+// 	char *src = "world!";
+// 	ft_strncat(dest, src, 4);
+// 	printf("Concatenated string: %s\n", dest);
+// 	return (0);
+// }
