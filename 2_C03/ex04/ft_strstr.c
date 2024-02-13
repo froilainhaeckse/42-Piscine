@@ -6,9 +6,11 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:01:11 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/12 23:36:26 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/13 22:01:26 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 char	*ft_strstr(char *str, char *to_find)
 {

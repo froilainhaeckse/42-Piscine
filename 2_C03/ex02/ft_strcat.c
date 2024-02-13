@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 20:13:20 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/13 09:13:45 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/13 22:06:19 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*ft_strcat(char *dest, char *src)
 		src++;
 		i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
