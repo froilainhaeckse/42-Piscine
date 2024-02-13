@@ -3,34 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 23:12:11 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 00:11:35 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/13 15:29:03 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// #include <stdio.h>
 
 int	ft_str_is_uppercase(char *str)
 {
 	while (*str != '\0')
 	{
-		if ((*str < 'A' || *str > 'Z') && *str != ' ')
+		if (*str < 'A' || *str > 'Z')
 			return (0);
 		str++;
 	}
 	return (1);
 }
-
-// int	main()
-// {
-// 	char	src[] = "ABCDRF";
-// 	char	result = ft_str_is_uppercase(src);
-
-// 	printf("Before Source: %s", src);
-// 	printf("\n");
-// 	printf("Result: %c", result);
-// 	printf("\n");
-// 	return (0);
-// }

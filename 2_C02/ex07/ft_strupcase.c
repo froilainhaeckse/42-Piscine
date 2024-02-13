@@ -3,34 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 23:21:19 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 01:00:39 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/13 15:41:05 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-
 char	ft_strupcase(char *str)
 {
+	char	*start;
+
+	start = str;
 	while (*str != '\0')
 	{
 		if (*str >= 'a' && *str <= 'z')
 			*str -= 32;
 		str++;
 	}
-	return (*str);
+	return (start);
 }
-
-// int	main()
-// {
-// 	char	src[] = "abcdsrf";
-
-// 	printf("Before Source: %s", src);
-// 	printf("\n");
-//     ft_strupcase(src);
-// 	printf("After: %s", src);
-// 	printf("\n");
-// 	return (0);
-// }

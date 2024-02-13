@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:10:36 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/12 23:36:47 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/13 09:13:51 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,3 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	dest[i] = '\0';
 	return (dest);
 }
-
-// int	main(void)
-// {
-// 	char dest[50] = "Hello, ";
-// 	char *src = "world!";
-// 	ft_strncat(dest, src, 4);
-// 	printf("Concatenated string: %s\n", dest);
-// 	return (0);
-// }

@@ -3,34 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 23:32:17 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/10 00:59:20 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/13 15:38:37 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-
 char	ft_strlowcase(char *str)
 {
+	char	*start;
+
+	start = str;
 	while (*str != '\0')
 	{
 		if (*str >= 'A' && *str <= 'Z')
 			*str += 32;
 		str++;
 	}
-	return (*str);
+	return (start);
 }
-
-// int	main()
-// {
-// 	char	src[] = "ASBCDFR";
-
-// 	printf("Before Source: %s", src);
-// 	printf("\n");
-//  ft_strlowcase(src);
-// 	printf("After: %s", src);
-// 	printf("\n");
-// 	return (0);
-// }
