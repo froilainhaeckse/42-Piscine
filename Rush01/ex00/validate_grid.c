@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 10:54:24 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/11 22:21:27 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/13 11:54:51 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	is_valid(int grid[4][4], char *viewpoints, int position[2], int num)
 	if (row == 0 || row == 3)
 	{
 		if (!min_expect_vals(viewpoints[col] - '0',
-				viewpoints[row + 12] - '0', num))
+				viewpoints[col + 4] - '0', num))
 			return (0);
 	}
 	return (1);
