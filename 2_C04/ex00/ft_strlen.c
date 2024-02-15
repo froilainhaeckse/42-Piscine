@@ -6,7 +6,7 @@
 /*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 22:09:02 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/13 22:38:08 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/15 18:47:46 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,11 @@
 int	ft_strlen(char *str)
 {
 	int		i;
-	char	c;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
 		i++;
 	}
-	c = i + '0';
-	write(1, &c, 1);
 	return (i);
 }
