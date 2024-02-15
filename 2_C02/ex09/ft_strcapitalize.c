@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 23:35:48 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/13 15:41:19 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/15 19:24:53 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	capitalize_next(char str)
 {
 	int	cap_next_i;
 
-	if ((str >= 'a' && str <= 'z') || (str >= 'A' && str <= 'Z'))
-		cap_next_i = 0;
-	else if (str >= '0' && str <= '9')
-		cap_next_i = 0;
-	else
+	if (str == ',' || str == ' ' || str == '+' || str == '-' || str == '$')
 		cap_next_i = 1;
+	else
+		cap_next_i = 0;
 	return (cap_next_i);
 }
 
@@ -27,9 +27,7 @@ char	ft_strcapitalize(char *str)
 {
 	int		i;
 	int		cap_next_i;
-	char	*start;
 
-	start = str;
 	i = 0;
 	cap_next_i = 1;
 	while (str[i] != '\0')
@@ -46,5 +44,15 @@ char	ft_strcapitalize(char *str)
 		cap_next_i = capitalize_next(str[i]);
 		i++;
 	}
-	return (start);
+	return (*str);
 }
+
+/*int	main()
+{
+	char str[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	char str1[] = "diujndfvon,odficj,dc dsfovij?kl43lo+dd-sdk%cdj*dc$sdc";
+	ft_strcapitalize(str);
+	ft_strcapitalize(str1);
+	printf("%s\n", str);
+	printf("%s\n", str1);
+}*/
