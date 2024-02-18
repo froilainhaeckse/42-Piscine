@@ -3,18 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkupler <tkupler@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: tkupler <tkupler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:41:41 by tkupler           #+#    #+#             */
-/*   Updated: 2024/02/15 14:26:52 by tkupler          ###   ########.fr       */
+/*   Updated: 2024/02/18 19:55:12 by tkupler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
+int	ft_strlen(char *str)
+{
+	int	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int	total_length;
+	int	total_length; //size_t?
+
 	int	num_separators;
 	int	i;
 	int	j;
@@ -23,28 +34,26 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char *dst;
 	char *str;
 
+	if (size == 0) {
+		char *result = malloc(1);
+		if (result) {
+			result[0] = '\0';
+		}
+		return result;
+	}
+
 	i = 0;
 	total_length = 0;
 	while(i < size)
 	{
-		if (strs[i] == NULL)
-			return (NULL);
-		while (*strs[i])
-		{
-			total_length++;
-			strs[i]++;
-		}
+		total_length += ft_strlen(strs[i]);
+		if (i < size - 1)
+			total_length += ft_strlen(sep);
 		i++;
 	}
-	sep_len = 0;
-	while (sep[sep_len])
-		sep_len++;
-	num_separators = size - 1;
-	if (num_separators > 0)
-		total_length += num_separators * sep_len;
 	result = (char *)malloc(total_length * sizeof(char));
-	if (result == NULL)
-		return NULL;
+	if (!result)
+		return (0);
 	dst = result;
 	i = 0;
 	while(i < size)
